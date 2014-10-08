@@ -12,3 +12,7 @@ The goal of the GeoGame was to study how information propagation in networks inf
 ## Stack
 
 The GeoGame is built on the Google Web Toolkit (GWT), which compiles Java down to JavaScript for client-side operations. Storage is MySQL with a Hibernate ORM layer.
+
+## Credit
+
+A great deal of this code (probably around 60%) was written by Antonio Juarez (cited as co-author on the paper linked above); that code was in turn based on a core written by a previous author whose name escapes me. My own contribution is probably around 25% of the total codebase.
