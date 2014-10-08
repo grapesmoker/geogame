@@ -1,0 +1,29 @@
+digraph MessageServiceImpl {
+	getMessages[shape=box];
+	sendMessages[shape=box];
+	moveToLocation[shape=box];
+	takeItem[shape=box];
+	
+	authenticatePlayer;
+	updateUserWithPlayer[label="updateUserWithPlayer: session, player"];
+	updateUserLocationIfArrived[label="updateUserLocationIfArrived: session, user"];
+	updateCacheMap[label="updateCacheMap: session, user, true"];
+	//writeToDatabase;
+	setUserProperties;
+	
+	getMessages -> authenticatePlayer;
+	getMessages -> updateUserWithPlayer -> setUserProperties;
+	getMessages -> updateUserLocationIfArrived -> setUserProperties;
+	getMessages -> updateCacheMap;
+
+	sendMessages -> updateUserWithPlayer -> setUserProperties;
+	sendMessages -> authenticatePlayer;
+
+	moveToLocation -> updateUserWithPlayer -> setUserProperties;
+	moveToLocation -> updateUserLocationIfArrived -> setUserProperties;
+	moveToLocation -> updateCacheMap;
+
+	takeItem -> authenticatePlayer;
+	takeItem -> updateUserWithPlayer -> setUserProperties;
+	takeItem -> updateCacheMap;
+}

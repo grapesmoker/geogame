@@ -1,0 +1,663 @@
+/*
+SQLyog - Free MySQL GUI v5.17
+Host - 5.1.45-community : Database - geogame
+*********************************************************************
+Server version : 5.1.45-community
+*/
+
+SET NAMES utf8;
+
+SET SQL_MODE='';
+
+create database if not exists `geogame`;
+
+USE `geogame`;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
+
+/*Table structure for table `acceptance_form` */
+
+DROP TABLE IF EXISTS `acceptance_form`;
+
+CREATE TABLE `acceptance_form` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `order_num` int(11) NOT NULL,
+  `content` text NOT NULL,
+  `active` bit(1) NOT NULL,
+  `created` datetime NOT NULL,
+  `button1_text` varchar(50),
+  `button2_text` varchar(50),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+/*Data for the table `acceptance_form` */
+insert into `acceptance_form` (`id`,`name`,`order_num`,`content`,`active`,`created`, `button1_text`, `button2_text`) values (1,'Consent Form',1,'This consent form allows us to do absolutely whatever we want to you. No pressure. No pressure whatsoever.','\0','2010-01-01 00:00:00', 'Sure thing', 'Fuck no');
+insert into `acceptance_form` (`id`,`name`,`order_num`,`content`,`active`,`created`, `button1_text`, `button2_text`) values (2,'Consent2',2,'Four score and eight years ago','\0','2010-10-13 21:21:21', 'I agree', 'I do not agree');
+insert into `acceptance_form` (`id`,`name`,`order_num`,`content`,`active`,`created`) values (3,'Real Consent Form',3,'<html xmlns:o=\"urn:schemas-microsoft-com:office:office\"\nxmlns:w=\"urn:schemas-microsoft-com:office:word\"\nxmlns:st1=\"urn:schemas-microsoft-com:office:smarttags\"\nxmlns=\"http://www.w3.org/TR/REC-html40\">\n\n<head>\n<meta http-equiv=Content-Type content=\"text/html; charset=windows-1252\">\n<meta name=ProgId content=Word.Document>\n<meta name=Generator content=\"Microsoft Word 11\">\n<meta name=Originator content=\"Microsoft Word 11\">\n<link rel=File-List\nhref=\"cmu-irb-consent-form-lebiere-online-2010_files/filelist.xml\">\n<title>SAMPLE COMBINED CONSENT/AUTHORIZATION</title>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"place\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"PlaceType\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"PlaceName\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"address\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"PostalCode\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"State\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"City\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"Street\"/>\n<!--[if gte mso 9]><xml>\n <w:WordDocument>\n  <w:Zoom>110</w:Zoom>\n  <w:SpellingState>Clean</w:SpellingState>\n  <w:GrammarState>Clean</w:GrammarState>\n  <w:ValidateAgainstSchemas/>\n  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>\n  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>\n  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>\n  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>\n </w:WordDocument>\n</xml><![endif]--><!--[if gte mso 9]><xml>\n <w:LatentStyles DefLockedState=\"false\" LatentStyleCount=\"156\">\n </w:LatentStyles>\n</xml><![endif]--><!--[if !mso]><object\n classid=\"clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D\" id=ieooui></object>\n<style>\nst1\\:*{behavior:url(#ieooui) }\n</style>\n<![endif]-->\n<style>\n<!--\n /* Font Definitions */\n @font-face\n	{font-family:Tahoma;\n	panose-1:2 11 6 4 3 5 4 4 2 4;\n	mso-font-charset:0;\n	mso-generic-font-family:swiss;\n	mso-font-pitch:variable;\n	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}\n@font-face\n	{font-family:Times;\n	panose-1:2 2 6 3 5 4 5 2 3 4;\n	mso-font-charset:0;\n	mso-generic-font-family:roman;\n	mso-font-format:other;\n	mso-font-pitch:variable;\n	mso-font-signature:3 0 0 0 1 0;}\n /* Style Definitions */\n p.MsoNormal, li.MsoNormal, div.MsoNormal\n	{mso-style-parent:\"\";\n	margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";}\nh3\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	mso-pagination:widow-orphan;\n	page-break-after:avoid;\n	mso-outline-level:3;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	font-weight:normal;\n	text-decoration:underline;\n	text-underline:single;}\nh4\n	{margin-top:0in;\n	margin-right:0in;\n	margin-bottom:0in;\n	margin-left:4.5in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	text-indent:-4.5in;\n	mso-pagination:widow-orphan;\n	page-break-after:avoid;\n	mso-outline-level:4;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	text-decoration:underline;\n	text-underline:single;}\nh5\n	{margin-top:0in;\n	margin-right:0in;\n	margin-bottom:0in;\n	margin-left:4.5in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	text-indent:-4.5in;\n	mso-pagination:widow-orphan;\n	page-break-after:avoid;\n	mso-outline-level:5;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	font-weight:normal;}\nh6\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	mso-pagination:widow-orphan;\n	page-break-after:avoid;\n	mso-outline-level:6;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	text-decoration:underline;\n	text-underline:single;}\np.MsoCommentText, li.MsoCommentText, div.MsoCommentText\n	{margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:10.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";}\np.MsoHeader, li.MsoHeader, div.MsoHeader\n	{margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";}\np.MsoFooter, li.MsoFooter, div.MsoFooter\n	{margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";}\np.MsoEnvelopeAddress, li.MsoEnvelopeAddress, div.MsoEnvelopeAddress\n	{margin-top:0in;\n	margin-right:0in;\n	margin-bottom:0in;\n	margin-left:2.0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";}\np.MsoTitle, li.MsoTitle, div.MsoTitle\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:center;\n	mso-pagination:widow-orphan;\n	layout-grid-mode:char;\n	font-size:16.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	font-weight:bold;}\np.MsoBodyText, li.MsoBodyText, div.MsoBodyText\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	mso-pagination:widow-orphan;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;}\np.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent\n	{margin-top:0in;\n	margin-right:0in;\n	margin-bottom:0in;\n	margin-left:.5in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	text-indent:-.5in;\n	mso-pagination:widow-orphan;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;}\np.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	mso-pagination:widow-orphan;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	font-weight:bold;\n	font-style:italic;\n	text-decoration:underline;\n	text-underline:single;}\np.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3\n	{margin:0in;\n	margin-bottom:.0001pt;\n	text-align:justify;\n	mso-pagination:widow-orphan;\n	layout-grid-mode:char;\n	font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	letter-spacing:-.15pt;\n	font-weight:bold;}\np.MsoBodyTextIndent2, li.MsoBodyTextIndent2, div.MsoBodyTextIndent2\n	{margin-top:0in;\n	margin-right:0in;\n	margin-bottom:0in;\n	margin-left:.25in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:Times;\n	mso-fareast-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";\n	letter-spacing:-.1pt;}\na:link, span.MsoHyperlink\n	{color:blue;\n	text-decoration:underline;\n	text-underline:single;}\na:visited, span.MsoHyperlinkFollowed\n	{color:purple;\n	text-decoration:underline;\n	text-underline:single;}\np.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject\n	{margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:10.0pt;\n	font-family:\"Times New Roman\";\n	mso-fareast-font-family:\"Times New Roman\";\n	font-weight:bold;}\np.MsoAcetate, li.MsoAcetate, div.MsoAcetate\n	{margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:8.0pt;\n	font-family:Tahoma;\n	mso-fareast-font-family:\"Times New Roman\";}\nspan.charchar\n	{mso-style-name:charchar;\n	font-family:Times;\n	mso-ascii-font-family:Times;\n	mso-hansi-font-family:Times;\n	mso-bidi-font-family:Times;\n	letter-spacing:-.1pt;}\nspan.msoins0\n	{mso-style-name:msoins;\n	color:teal;\n	text-decoration:underline;\n	text-underline:single;}\nspan.msodel0\n	{mso-style-name:msodel;\n	color:red;\n	text-decoration:line-through;}\nspan.SpellE\n	{mso-style-name:\"\";\n	mso-spl-e:yes;}\n@page Section1\n	{size:8.5in 11.0in;\n	margin:.7in .8in .7in .8in;\n	mso-header-margin:.5in;\n	mso-footer-margin:.5in;\n	mso-paper-source:0;}\ndiv.Section1\n	{page:Section1;}\n-->\n</style>\n<!--[if gte mso 10]>\n<style>\n /* Style Definitions */\n table.MsoNormalTable\n	{mso-style-name:\"Table Normal\";\n	mso-tstyle-rowband-size:0;\n	mso-tstyle-colband-size:0;\n	mso-style-noshow:yes;\n	mso-style-parent:\"\";\n	mso-padding-alt:0in 5.4pt 0in 5.4pt;\n	mso-para-margin:0in;\n	mso-para-margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:10.0pt;\n	font-family:\"Times New Roman\";\n	mso-ansi-language:#0400;\n	mso-fareast-language:#0400;\n	mso-bidi-language:#0400;}\n</style>\n<![endif]-->\n</head>\n\n<body lang=EN-US link=blue vlink=purple style=\'tab-interval:.5in\'>\n\n<div class=Section1>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Study Title: </span></b>Modeling\nStrategies in Large Human-Machine Networked Systems<span style=\'color:blue;\nletter-spacing:-.15pt\'> </span>HS# HS08-248</p>\n\n<p class=MsoNormal><b>&nbsp;</b></p>\n\n<p class=MsoNormal><b>Principal Investigator:</b> Dr. Christian <span\nclass=SpellE>Lebiere</span>, Research Faculty</p>\n\n<p class=MsoNormal style=\'margin-left:.5in;text-align:justify;page-break-after:\navoid\'><span style=\'letter-spacing:-.15pt\'>Psychology Department, <st1:address\nw:st=\"on\"><st1:Street w:st=\"on\">5000 Forbes Avenue</st1:Street>, <st1:City\n w:st=\"on\">Pittsburgh</st1:City> <st1:State w:st=\"on\">PA</st1:State> <st1:PostalCode\n w:st=\"on\">15213</st1:PostalCode></st1:address></span></p>\n\n<p class=MsoNormal style=\'margin-left:.5in;text-align:justify;page-break-after:\navoid\'><span style=\'letter-spacing:-.15pt\'>412-268-6028; cl@cmu.edu</span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>_______________________________________________________________________________</span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Purpose of this Study</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>The purpose of the Study\nis to investigate decision-making as it relates to networked missions.</span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Procedures</span></b><span\nstyle=\'letter-spacing:-.15pt\'>&nbsp; </span></p>\n\n<p class=MsoNormal><a name=\"OLE_LINK1\">You </a><span style=\'letter-spacing:\n-.15pt\'>will be asked to interact with a computer simulation involving a\nnetworked environment scenario. </span>You <span style=\'letter-spacing:-.15pt\'>will\nbe charged with </span>acquiring and trading <span style=\'letter-spacing:-.15pt\'>resources</span>\nand making decisions regarding<span style=\'letter-spacing:-.15pt\'> a mission</span>\nand with communicating with other participants as you go along<span\nstyle=\'letter-spacing:-.15pt\'>.&nbsp; </span>You <span style=\'letter-spacing:\n-.15pt\'>may </span>also <span style=\'letter-spacing:-.15pt\'>be asked to\ncomplete a basic background questionnaire and provide verbal feedback about </span>your\n<span style=\'letter-spacing:-.15pt\'>experience.<o:p></o:p></span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>The study duration is\napproximately 120 minutes.&nbsp; The study will be conducted </span>over a Web\ninterface at a place of your choosing.<span style=\'letter-spacing:-.15pt\'><o:p></o:p></span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Participant\nRequirements</span></b><span style=\'letter-spacing:-.15pt\'>&nbsp; </span></p>\n\n<p class=MsoNormal>You <span style=\'letter-spacing:-.15pt\'>must be 18 years of\nage to participate. </span>We may use technology (anonymous ?cookies?) to\nensure we can identify you in case you take the experiment multiple\ntimes.&nbsp;&nbsp;<span style=\'letter-spacing:-.15pt\'><o:p></o:p></span></p>\n\n<p class=MsoNormal><o:p>&nbsp;</o:p></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></b></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Risks</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>The risks and discomfort\nassociated with participation in this study are no greater than those\nordinarily encountered in daily life or during the performance of routine\nphysical or psychological examinations or tests. </span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Benefits</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>There may be no personal\nbenefit from your participation in the study but the knowledge received may be\nof value to humanity.</span>&nbsp;The experiment is designed to be engaging and\nenjoyable.<span style=\'letter-spacing:-.15pt\'><o:p></o:p></span></p>\n\n<p class=MsoNormal><span style=\'color:blue;letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Compensation &amp;\nCosts</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>There will be no cost to\nyou if you participate in this study.</span>&nbsp; Where advertised so, you are\nentered into a lottery to win a valuable item; entry into the lottery with\naverage chances of winning will not depend on you concluding the\nexperiment.&nbsp; We will communicate the duration of each lottery and how many\nparticipants we expect to participate to the participants.&nbsp; Chances of\nsuccess may be increased with your success in the game: if you do well, you can\nwin additional prizes.&nbsp; We will tell you about that in our advertisements\nand in the game.&nbsp; (Note that all trading, buying and selling in the game\nis done with virtual goods; they are not redeemable for real-life valuables or\nmoney.)<span style=\'letter-spacing:-.15pt\'><o:p></o:p></span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal style=\'margin-right:.9pt\'><b><span style=\'letter-spacing:\n-.15pt\'>Confidentiality</span></b></p>\n\n<p class=MsoNormal style=\'margin-right:-10.0pt;text-autospace:none\'>By\nparticipating in the study, you understand and agree that Carnegie Mellon may\nbe required to disclose your consent form, data and other personally\nidentifiable information as required by law, regulation, subpoena or court\norder.&nbsp; Otherwise, your confidentiality will be maintained in the\nfollowing manner:</p>\n\n<p class=MsoNormal style=\'margin-right:-10.0pt;text-autospace:none\'>&nbsp;</p>\n\n<p class=MsoNormal style=\'margin-right:-10.0pt;text-autospace:none\'>Your data\nand consent form will be kept separate. Your consent form will be stored in a\nlocked location on Carnegie Mellon property and will not be disclosed to third\nparties. By participating, you understand and agree that the data and\ninformation gathered during this study may be used by Carnegie Mellon and\npublished and/or disclosed by Carnegie Mellon to others outside of Carnegie\nMellon.&nbsp; However, your name, address, contact information and other direct\npersonal identifiers in your consent form will not be mentioned in any such\npublication or dissemination of the research data and/or results by Carnegie\nMellon.&nbsp; </p>\n\n<p class=MsoNormal style=\'margin-right:.9pt\'><b>&nbsp;</b></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Rights</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>Your participation is\nvoluntary.&nbsp; You are free to stop your participation at any point.&nbsp;\nRefusal to participate or withdrawal of your consent or discontinued\nparticipation in the study will not result in any penalty or loss of benefits\nor rights to which you might otherwise be entitled.&nbsp; The Principal\nInvestigator may at his/her discretion remove you from the study for any of a\nnumber of reasons.&nbsp; In such an event, you will not suffer any penalty or\nloss of benefits or rights which you might otherwise be entitled.</span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><b>&nbsp;</b></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><b>Right\nto Ask Questions &amp; Contact Information</b></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>If you have any questions about this study, you\nshould feel free to ask them now or anytime throughout the study by contacting:\n<o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>Dr. Christian <span class=SpellE>Lebiere</span><o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>Psychology Department<o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>345A Baker Hall<o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>Email: cl@cmu.edu <o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'>(412) 268-6028<o:p></o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'><span\nstyle=\'letter-spacing:-.15pt\'><o:p>&nbsp;</o:p></span></p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'>If you\nhave questions later, desire additional information, or wish to withdraw your\nparticipation please contact the Princip<span class=msoins0>al</span>\nInvestigator by mail, phone or e-mail in accordance with the contact\ninformation listed on the first page of this consent.&nbsp; </p>\n\n<p class=MsoNormal style=\'text-align:justify;page-break-after:avoid\'>&nbsp;</p>\n\n<p class=MsoNormal>If you have questions pertaining to your rights as a\nresearch participant; or to report objections to this study, you should contact\nthe Research Regulatory Compliance Office at <st1:place w:st=\"on\"><st1:PlaceName\n w:st=\"on\">Carnegie</st1:PlaceName> <st1:PlaceName w:st=\"on\">Mellon</st1:PlaceName>\n <st1:PlaceType w:st=\"on\">University</st1:PlaceType></st1:place>.&nbsp; Email: <a\nhref=\"mailto:irb-review@andrew.cmu.edu\">irb-review@andrew.cmu.edu</a> . Phone:\n412-268-1901 or 412-268-5460.</p>\n\n<p class=MsoNormal style=\'text-align:justify\'>&nbsp;</p>\n\n<p class=MsoNormal style=\'text-align:justify\'>T<span style=\'letter-spacing:\n-.15pt\'>he Carnegie Mellon University Institutional Review Board (IRB) has\napproved the use of human participants for this study. </span></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Conflict of Interest</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>This study is funded by\nAir Force Office of Scientific Research, which is supporting the costs of this\nresearch. <b>Neither</b> <st1:place w:st=\"on\"><st1:PlaceName w:st=\"on\">Carnegie</st1:PlaceName>\n <st1:PlaceName w:st=\"on\">Mellon</st1:PlaceName> <st1:PlaceType w:st=\"on\">University</st1:PlaceType></st1:place>,\n<b>nor</b> Dr. Christian <span class=SpellE>Lebiere</span> will receive any\nfinancial benefit based on the results of this study.</span></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>&nbsp;</span></b></p>\n\n<p class=MsoNormal><b><span style=\'letter-spacing:-.15pt\'>Voluntary Consent</span></b></p>\n\n<p class=MsoNormal><span style=\'letter-spacing:-.15pt\'>By clicking the ?I\nAccept? button below, you agree that the above information has been explained\nto you and all your current questions have been answered.&nbsp; You understand\nthat you may ask questions about any aspect of this research study during the\ncourse of the study and in the future.&nbsp; By signing this form, you agree to\nparticipate in this research study.&nbsp; </span></p>\n\n<p class=MsoNormal style=\'page-break-after:avoid\'><span style=\'letter-spacing:\n-.15pt\'>&nbsp;</span></p>\n\n<p class=MsoNormal style=\'page-break-after:avoid\'><span style=\'letter-spacing:\n-.15pt\'>I certify that I have explained the nature and purpose of this research\nstudy to the above individual and I have discussed the potential benefits and\npossible risks of participation in the study.&nbsp; Any questions the\nindividual has about this study have been answered and any future questions\nwill be answered as they arise.</span></p>\n\n</div>\n\n</body>\n\n</html>\n','','2010-10-15 21:45:52');
+insert into `acceptance_form` (`id`,`name`,`order_num`,`content`,`active`,`created`) values (4,'Instructions',4,'<html xmlns:v=\"urn:schemas-microsoft-com:vml\"\nxmlns:o=\"urn:schemas-microsoft-com:office:office\"\nxmlns:w=\"urn:schemas-microsoft-com:office:word\"\nxmlns:st1=\"urn:schemas-microsoft-com:office:smarttags\"\nxmlns=\"http://www.w3.org/TR/REC-html40\">\n\n<head>\n<meta http-equiv=Content-Type content=\"text/html; charset=windows-1252\">\n<meta name=ProgId content=Word.Document>\n<meta name=Generator content=\"Microsoft Word 11\">\n<meta name=Originator content=\"Microsoft Word 11\">\n<link rel=File-List href=\"Participant%20Info%20GeoGame2_files/filelist.xml\">\n<link rel=Preview href=\"Participant%20Info%20GeoGame2_files/preview.wmf\">\n<link rel=Edit-Time-Data href=\"Participant%20Info%20GeoGame2_files/editdata.mso\">\n<!--[if !mso]>\n<style>\nv\\:* {behavior:url(#default#VML);}\no\\:* {behavior:url(#default#VML);}\nw\\:* {behavior:url(#default#VML);}\n.shape {behavior:url(#default#VML);}\n</style>\n<![endif]-->\n<title>Dear participant,</title>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"City\"/>\n<o:SmartTagType namespaceuri=\"urn:schemas-microsoft-com:office:smarttags\"\n name=\"place\"/>\n<!--[if gte mso 9]><xml>\n <o:DocumentProperties>\n  <o:Author>David Reitter</o:Author>\n  <o:LastAuthor>Antonio</o:LastAuthor>\n  <o:Revision>2</o:Revision>\n  <o:TotalTime>53</o:TotalTime>\n  <o:Created>2010-08-18T17:25:00Z</o:Created>\n  <o:LastSaved>2010-08-18T17:25:00Z</o:LastSaved>\n  <o:Pages>1</o:Pages>\n  <o:Words>555</o:Words>\n  <o:Characters>3165</o:Characters>\n  <o:Company>Carnegie Mellon University</o:Company>\n  <o:Lines>26</o:Lines>\n  <o:Paragraphs>7</o:Paragraphs>\n  <o:CharactersWithSpaces>3713</o:CharactersWithSpaces>\n  <o:Version>11.9999</o:Version>\n </o:DocumentProperties>\n</xml><![endif]--><!--[if gte mso 9]><xml>\n <w:WordDocument>\n  <w:Zoom>110</w:Zoom>\n  <w:SpellingState>Clean</w:SpellingState>\n  <w:GrammarState>Clean</w:GrammarState>\n  <w:TrackRevisions/>\n  <w:DisplayHorizontalDrawingGridEvery>0</w:DisplayHorizontalDrawingGridEvery>\n  <w:DisplayVerticalDrawingGridEvery>0</w:DisplayVerticalDrawingGridEvery>\n  <w:UseMarginsForDrawingGridOrigin/>\n  <w:ValidateAgainstSchemas>false</w:ValidateAgainstSchemas>\n  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>\n  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>\n  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>\n  <w:DoNotUnderlineInvalidXML/>\n  <w:Compatibility>\n   <w:BreakWrappedTables/>\n   <w:SnapToGridInCell/>\n   <w:WrapTextWithPunct/>\n   <w:UseAsianBreakRules/>\n   <w:DontGrowAutofit/>\n  </w:Compatibility>\n  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>\n </w:WordDocument>\n</xml><![endif]--><!--[if gte mso 9]><xml>\n <w:LatentStyles DefLockedState=\"false\" LatentStyleCount=\"156\">\n  <w:LsdException Locked=\"true\" Name=\"Normal\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 1\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 2\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 3\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 4\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 5\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 6\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 7\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 8\"/>\n  <w:LsdException Locked=\"true\" Name=\"heading 9\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 1\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 2\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 3\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 4\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 5\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 6\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 7\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 8\"/>\n  <w:LsdException Locked=\"true\" Name=\"toc 9\"/>\n  <w:LsdException Locked=\"true\" Name=\"caption\"/>\n  <w:LsdException Locked=\"true\" Name=\"Title\"/>\n  <w:LsdException Locked=\"true\" Name=\"Subtitle\"/>\n  <w:LsdException Locked=\"true\" Name=\"Strong\"/>\n  <w:LsdException Locked=\"true\" Name=\"Emphasis\"/>\n  <w:LsdException Locked=\"true\" Name=\"Table Grid\"/>\n </w:LatentStyles>\n</xml><![endif]--><!--[if !mso]><object\n classid=\"clsid:38481807-CA0E-42D2-BF39-B33AF135CC4D\" id=ieooui></object>\n<style>\nst1\\:*{behavior:url(#ieooui) }\n</style>\n<![endif]-->\n<style>\n<!--\n /* Font Definitions */\n @font-face\n	{font-family:Cambria;\n	panose-1:2 4 5 3 5 4 6 3 2 4;\n	mso-font-charset:0;\n	mso-generic-font-family:roman;\n	mso-font-pitch:variable;\n	mso-font-signature:-1610611985 1073741899 0 0 159 0;}\n@font-face\n	{font-family:\"Lucida Grande\";\n	panose-1:0 0 0 0 0 0 0 0 0 0;\n	mso-font-alt:Courier;\n	mso-font-charset:0;\n	mso-generic-font-family:auto;\n	mso-font-format:other;\n	mso-font-pitch:variable;\n	mso-font-signature:3 0 0 0 1 0;}\n /* Style Definitions */\n p.MsoNormal, li.MsoNormal, div.MsoNormal\n	{mso-style-parent:\"\";\n	margin-top:0in;\n	margin-right:0in;\n	margin-bottom:10.0pt;\n	margin-left:0in;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	mso-bidi-font-size:10.0pt;\n	font-family:Cambria;\n	mso-fareast-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";}\np.MsoCommentText, li.MsoCommentText, div.MsoCommentText\n	{mso-style-noshow:yes;\n	mso-style-link:\"Comment Text Char\";\n	margin-top:0in;\n	margin-right:0in;\n	margin-bottom:10.0pt;\n	margin-left:0in;\n	mso-pagination:widow-orphan;\n	font-size:12.0pt;\n	font-family:Cambria;\n	mso-fareast-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";}\nspan.MsoCommentReference\n	{mso-style-noshow:yes;\n	mso-ansi-font-size:9.0pt;\n	mso-bidi-font-size:9.0pt;\n	font-family:\"Times New Roman\";\n	mso-ascii-font-family:\"Times New Roman\";\n	mso-hansi-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";}\np.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject\n	{mso-style-noshow:yes;\n	mso-style-parent:\"Comment Text\";\n	mso-style-link:\"Comment Subject Char\";\n	mso-style-next:\"Comment Text\";\n	margin-top:0in;\n	margin-right:0in;\n	margin-bottom:10.0pt;\n	margin-left:0in;\n	mso-pagination:widow-orphan;\n	font-size:10.0pt;\n	font-family:Cambria;\n	mso-fareast-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";\n	font-weight:bold;}\np.MsoAcetate, li.MsoAcetate, div.MsoAcetate\n	{mso-style-noshow:yes;\n	mso-style-link:\"Balloon Text Char\";\n	margin:0in;\n	margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:9.0pt;\n	font-family:\"Lucida Grande\";\n	mso-fareast-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";}\nspan.CommentTextChar\n	{mso-style-name:\"Comment Text Char\";\n	mso-style-noshow:yes;\n	mso-style-locked:yes;\n	mso-style-link:\"Comment Text\";\n	mso-ansi-font-size:12.0pt;\n	mso-bidi-font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-ascii-font-family:\"Times New Roman\";\n	mso-hansi-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";}\nspan.CommentSubjectChar\n	{mso-style-name:\"Comment Subject Char\";\n	mso-style-noshow:yes;\n	mso-style-locked:yes;\n	mso-style-parent:\"Comment Text Char\";\n	mso-style-link:\"Comment Subject\";\n	mso-ansi-font-size:12.0pt;\n	mso-bidi-font-size:12.0pt;\n	font-family:\"Times New Roman\";\n	mso-ascii-font-family:\"Times New Roman\";\n	mso-hansi-font-family:\"Times New Roman\";\n	mso-bidi-font-family:\"Times New Roman\";\n	font-weight:bold;}\nspan.BalloonTextChar\n	{mso-style-name:\"Balloon Text Char\";\n	mso-style-noshow:yes;\n	mso-style-locked:yes;\n	mso-style-link:\"Balloon Text\";\n	mso-ansi-font-size:9.0pt;\n	mso-bidi-font-size:9.0pt;\n	font-family:\"Lucida Grande\";\n	mso-ascii-font-family:\"Lucida Grande\";\n	mso-hansi-font-family:\"Lucida Grande\";\n	mso-bidi-font-family:\"Times New Roman\";}\nspan.SpellE\n	{mso-style-name:\"\";\n	mso-spl-e:yes;}\nspan.GramE\n	{mso-style-name:\"\";\n	mso-gram-e:yes;}\n@page Section1\n	{size:594.95pt 841.9pt;\n	margin:1.0in 1.25in 1.0in 1.25in;\n	mso-header-margin:35.4pt;\n	mso-footer-margin:35.4pt;\n	mso-paper-source:0;}\ndiv.Section1\n	{page:Section1;}\n-->\n</style>\n<!--[if gte mso 10]>\n<style>\n /* Style Definitions */\n table.MsoNormalTable\n	{mso-style-name:\"Table Normal\";\n	mso-tstyle-rowband-size:0;\n	mso-tstyle-colband-size:0;\n	mso-style-noshow:yes;\n	mso-style-parent:\"\";\n	mso-padding-alt:0in 5.4pt 0in 5.4pt;\n	mso-para-margin:0in;\n	mso-para-margin-bottom:.0001pt;\n	mso-pagination:widow-orphan;\n	font-size:10.0pt;\n	font-family:\"Times New Roman\";\n	mso-ansi-language:#0400;\n	mso-fareast-language:#0400;\n	mso-bidi-language:#0400;}\n</style>\n<![endif]--><!--[if gte mso 9]><xml>\n <o:shapedefaults v:ext=\"edit\" spidmax=\"7170\"/>\n</xml><![endif]--><!--[if gte mso 9]><xml>\n <o:shapelayout v:ext=\"edit\">\n  <o:idmap v:ext=\"edit\" data=\"1\"/>\n </o:shapelayout></xml><![endif]-->\n</head>\n\n<body lang=EN-US style=\'tab-interval:.5in\'>\n\n<div class=Section1>\n\n<p class=MsoNormal><b style=\'mso-bidi-font-weight:normal\'>Dear participant,<o:p></o:p></b></p>\n\n<p class=MsoNormal>Thank you for volunteering to participate in the Geo Game\nexperiment.</p>\n\n<p class=MsoNormal>In this experiment, we ask you to play a game:<span\nstyle=\'mso-spacerun:yes\'>? </span>the goal is to travel to places in order to\nfind precious items.<span style=\'mso-spacerun:yes\'>? </span>You will be shown a\nmap with several locations (see below), and roads connecting them.<span\nstyle=\'mso-spacerun:yes\'>? </span>Displayed below the map is the current item\nthat you need to find.<span style=\'mso-spacerun:yes\'>? </span>Your current\nlocation on the map is marked by a blue dot.<span style=\'mso-spacerun:yes\'>?\n</span>Clicking on a city that is directly connected to your location allows\nyou to travel there.<span style=\'mso-spacerun:yes\'>? </span>You can move the\nmap around by dragging with the mouse, and there are buttons on the top right\nto zoom in (+) and out (-), and to center on your current location (o).</p>\n\n<p class=MsoNormal>Each city has different items (including possibly none) available:\nthose are shown on the left for the current city.<span\nstyle=\'mso-spacerun:yes\'>? </span>To pick up your item, click on the\n&quot;Get&quot; button next to it.<span style=\'mso-spacerun:yes\'>? </span>You\nwill then be shown the next item to find.<span style=\'mso-spacerun:yes\'>?\n</span>You will receive points for each item you find.<span\nstyle=\'mso-spacerun:yes\'>? </span>You goal is to get as many points as possible.<span\nstyle=\'mso-spacerun:yes\'>? </span></p>\n\n<p class=MsoNormal>Because there are many cities, and traveling takes time, you\nneed to use all the help you can get to find the items.<span\nstyle=\'mso-spacerun:yes\'>? </span>Luckily, <b style=\'mso-bidi-font-weight:normal\'>you\nare not alone</b>.<span style=\'mso-spacerun:yes\'>? </span>Other players are\nplaying the game with you, and they also have to find items.<span\nstyle=\'mso-spacerun:yes\'>? </span>Your objective is not just to find your own\nitems - it is also to help your team find items, as your team will help\nyou.<span style=\'mso-spacerun:yes\'>? </span>You will receive partial credit for\nitems found by other members of your team.</p>\n\n<p class=MsoNormal><!--[if gte vml 1]><o:wrapblock><v:shapetype id=\"_x0000_t75\"\n  coordsize=\"21600,21600\" o:spt=\"75\" o:preferrelative=\"t\" path=\"m@4@5l@4@11@9@11@9@5xe\"\n  filled=\"f\" stroked=\"f\">\n  <v:stroke joinstyle=\"miter\"/>\n  <v:formulas>\n   <v:f eqn=\"if lineDrawn pixelLineWidth 0\"/>\n   <v:f eqn=\"sum @0 1 0\"/>\n   <v:f eqn=\"sum 0 0 @1\"/>\n   <v:f eqn=\"prod @2 1 2\"/>\n   <v:f eqn=\"prod @3 21600 pixelWidth\"/>\n   <v:f eqn=\"prod @3 21600 pixelHeight\"/>\n   <v:f eqn=\"sum @0 0 1\"/>\n   <v:f eqn=\"prod @6 1 2\"/>\n   <v:f eqn=\"prod @7 21600 pixelWidth\"/>\n   <v:f eqn=\"sum @8 21600 0\"/>\n   <v:f eqn=\"prod @7 21600 pixelHeight\"/>\n   <v:f eqn=\"sum @10 21600 0\"/>\n  </v:formulas>\n  <v:path o:extrusionok=\"f\" gradientshapeok=\"t\" o:connecttype=\"rect\"/>\n  <o:lock v:ext=\"edit\" aspectratio=\"t\"/>\n </v:shapetype><v:shape id=\"_x0000_s1026\" type=\"#_x0000_t75\" style=\'position:absolute;\n  margin-left:10.8pt;margin-top:0;width:510.8pt;height:286pt;z-index:1;\n  visibility:visible;mso-position-vertical:top\'>\n  <w:wrap type=\"topAndBottom\"/>\n </v:shape><![endif]--><![if !vml]><span style=\'mso-ignore:vglayout\'>\n <table cellpadding=0 cellspacing=0>\n  <tr>\n   <td width=14 height=0></td>\n  </tr>\n  <tr>\n   <td></td>\n   <td><img width=681 height=381\n   src=\"InstructionsImage2.jpg\" v:shapes=\"_x0000_s1026\"></td>\n  </tr>\n </table>\n </span><![endif]><!--[if gte vml 1]></o:wrapblock><![endif]--><br\nstyle=\'mso-ignore:vglayout\' clear=ALL>\nYou can help your team by <b style=\'mso-bidi-font-weight:normal\'>exchanging\ninformation</b> with some of the other players on the right hand side of the\nscreen.<span style=\'mso-spacerun:yes\'>? </span>At the top right is a limited\nwindow of past messages from your team.<span style=\'mso-spacerun:yes\'>?\n</span>In the bottom right window, you may <b style=\'mso-bidi-font-weight:normal\'>type\nmessages</b> (press the &quot;Send&quot; button, or, the Enter key to send\nthem).<span style=\'mso-spacerun:yes\'>? </span>Note that you cannot talk to all\nof the members of your team. However, the same players will see and respond to\nyour messages throughout the game.<span style=\'mso-spacerun:yes\'>? </span>In\naddition, the players you can talk to may be able to reach other players.<span\nstyle=\'mso-spacerun:yes\'>? </span>So, by forming a chain, it may be possible to\npass information along.<span style=\'mso-spacerun:yes\'>? </span>For example, you\ncan ask the players to inquire about an item, and get back to you if they hear\nback about it.</p>\n\n<p class=MsoNormal>Typically, you will exchange information about two things:\nwhere certain items are available, and whether some roads are particularly slow\nor fast.<span style=\'mso-spacerun:yes\'>? </span>Exchanging such information is\na good thing for you, because you will be rewarded not just for finding your\nown items:<span style=\'mso-spacerun:yes\'>? </span><b style=\'mso-bidi-font-weight:\nnormal\'>you also receive points whenever one of your teammates finds an item</b>.<span\nstyle=\'mso-spacerun:yes\'>? </span>This extends to the people you talk <span\nclass=GramE>to</span> directly via messages, but also to team-members that only\nthey can talk to (you get fewer points when those members find items).</p>\n\n<p class=MsoNormal><b style=\'mso-bidi-font-weight:normal\'><i style=\'mso-bidi-font-style:\nnormal\'><span style=\'color:red\'>The best way to exchange messages is to ask\nyour teammates for information when you need it</span></i></b><i\nstyle=\'mso-bidi-font-style:normal\'><span style=\'color:red\'>, for instance:<span\nstyle=\'mso-spacerun:yes\'>? </span>&quot;What\'s the best route to get from <span\nclass=SpellE>Sandefjord</span> to <st1:City w:st=\"on\"><st1:place w:st=\"on\">Pittsburgh</st1:place></st1:City>?&quot;,\nor &quot;Where do I find an emerald?&quot;<span style=\'mso-spacerun:yes\'>??\n</span>You may also ask them to pass on the question to others that they can\nreach.<span style=\'mso-spacerun:yes\'>? </span>Please make sure you ask only\nimportant things that help you find items quickly, and to pass on information that\nyou know is needed.<o:p></o:p></span></i></p>\n\n<p class=MsoNormal>As you can imagine, good communication is key to winning\nthis game.<span style=\'mso-spacerun:yes\'>? </span>You can talk to your team at\nany time: use the time while you are moving around.<span\nstyle=\'mso-spacerun:yes\'>? </span>It is a good idea to keep moving as much as\nyou can.<span style=\'mso-spacerun:yes\'>? </span>This allows you to explore cities\nand find items that you need.<span style=\'mso-spacerun:yes\'>? </span>Pay close\nattention to the list of items at each location.<span\nstyle=\'mso-spacerun:yes\'>? </span>You may need to find one of those items\nlater!</p>\n\n<p class=MsoNormal>Do not communicate with other participants except through\nthe messaging window.<span style=\'mso-spacerun:yes\'>? </span>Do not use any\naids to remember things: pen and paper are not allowed!</p>\n\n<p class=MsoNormal>Please ask your experimenter in case you have any questions.</p>\n\n<p class=MsoNormal>Now, go off and travel the world!<span\nstyle=\'mso-spacerun:yes\'>? </span>You have 20 minutes.<span\nstyle=\'mso-spacerun:yes\'>?? </span>Have fun.</p>\n\n</div>\n\n</body>\n\n</html>\n','','2010-10-15 22:02:21');
+
+/*Table structure for table `action` */
+
+DROP TABLE IF EXISTS `action`;
+
+CREATE TABLE `action` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `action_type` bigint(20) NOT NULL,
+  `user_id` bigint(20) DEFAULT NULL,
+  `time_action` datetime NOT NULL,
+  `destination_user_id` bigint(20) DEFAULT NULL,
+  `source_location_id` bigint(20) DEFAULT NULL,
+  `destination_location_id` bigint(20) DEFAULT NULL,
+  `combo_id` bigint(20) DEFAULT NULL,
+  `item_id` bigint(20) DEFAULT NULL,
+  `item_type_id` bigint(20) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `burglary` tinyint(4) DEFAULT NULL,
+  `burglary_cost` int(11) DEFAULT NULL,
+  `score_increase` int(11) DEFAULT NULL,
+  `new_score` int(11) DEFAULT NULL,
+  `location_items` varchar(100) DEFAULT NULL,
+  `thread_id` int(11) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=207114 DEFAULT CHARSET=latin1;
+
+/*Data for the table `action` */
+
+insert into `action` (`id`,`action_type`,`user_id`,`time_action`,`destination_user_id`,`source_location_id`,`destination_location_id`,`combo_id`,`item_id`,`item_type_id`,`price`,`burglary`,`burglary_cost`,`score_increase`,`new_score`,`location_items`,`thread_id`,`created`) values (207113,0,1,'2010-08-23 15:50:49',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,NULL,NULL,'2010-08-23 15:50:49');
+
+/*Table structure for table `combo` */
+
+DROP TABLE IF EXISTS `combo`;
+
+CREATE TABLE `combo` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `combo_type_id` bigint(20) NOT NULL,
+  `location_id` bigint(20) NOT NULL,
+  `price` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `combotype_location_ids_unique_idx` (`combo_type_id`,`location_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 CHECKSUM=1 DELAY_KEY_WRITE=1 ROW_FORMAT=DYNAMIC;
+
+/*Data for the table `combo` */
+
+/*Table structure for table `combo_type` */
+
+DROP TABLE IF EXISTS `combo_type`;
+
+CREATE TABLE `combo_type` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `icon_filename` varchar(100) DEFAULT NULL,
+  `base_price` int(11) DEFAULT NULL,
+  `item_type_count` int(11) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+/*Data for the table `combo_type` */
+
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (1,'Sparkly','','',740,4,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (2,'Rambo','','',180,3,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (3,'Bob the Builder','','',60,2,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (4,'Red Baron','','',210,4,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (5,'Smokey the Bear','','',100,4,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (6,'The Keymaker','','',250,6,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (7,'Ocean\'s Four','','',120,4,'2000-01-01 00:00:00');
+insert into `combo_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`item_type_count`,`created`) values (8,'Tik Tok','','',60,2,'2000-01-01 00:00:00');
+
+/*Table structure for table `counter` */
+
+DROP TABLE IF EXISTS `counter`;
+
+CREATE TABLE `counter` (
+  `id` bigint(20) NOT NULL,
+  `counter` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/*Data for the table `counter` */
+
+insert into `counter` (`id`,`counter`,`created`) values (1,46,'2000-01-01 00:00:00');
+
+/*Table structure for table `forms_per_user` */
+
+DROP TABLE IF EXISTS `forms_per_user`;
+
+CREATE TABLE `forms_per_user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(20) NOT NULL,
+  `form_id` bigint(20) NOT NULL,
+  `timestamp` datetime NOT NULL,
+  `is_success` bit(1) NOT NULL,
+  `result_string` varchar(200) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=106 DEFAULT CHARSET=latin1;
+
+/*Data for the table `forms_per_user` */
+
+/*Table structure for table `goal_items_per_player` */
+
+DROP TABLE IF EXISTS `goal_items_per_player`;
+
+CREATE TABLE `goal_items_per_player` (
+  `player_id` bigint(20) NOT NULL,
+  `item_type_id` bigint(20) NOT NULL,
+  KEY `player_id` (`player_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `goal_items_per_player` */
+
+/*Table structure for table `item` */
+
+DROP TABLE IF EXISTS `item`;
+
+CREATE TABLE `item` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `item_type_id` bigint(20) DEFAULT NULL,
+  `owner_id` bigint(20) DEFAULT NULL,
+  `location_id` bigint(20) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `item` */
+
+/*Table structure for table `item_type` */
+
+DROP TABLE IF EXISTS `item_type`;
+
+CREATE TABLE `item_type` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(500) DEFAULT NULL,
+  `icon_filename` varchar(100) DEFAULT NULL,
+  `base_price` int(11) NOT NULL,
+  `replenishable` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+
+/*Data for the table `item_type` */
+
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (1,'Apple',NULL,'apple.png',1,1,'2010-08-10 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (2,'Bazooka',NULL,'bazooka.jpg',20,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (3,'Binoculars',NULL,'binoculars.png',8,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (4,'Cake',NULL,'cake.jpg',3,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (5,'Cat',NULL,'cat.png',2,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (6,'First Aid Kit',NULL,'firstaid.jpg',2,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (7,'Fork',NULL,'fork.jpg',1,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (8,'Gear',NULL,'gear.png',3,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (9,'Star',NULL,'star.png',7,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (10,'Hammer',NULL,'hammer.png',4,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (11,'Knife',NULL,'knife.jpg',4,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (12,'Ladder',NULL,'ladder.jpg',7,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (13,'Camera',NULL,'camera.png',30,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (14,'Tree',NULL,'tree.png',25,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (15,'Potion',NULL,'potion.gif',12,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (16,'Radio',NULL,'radio.gif',8,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (17,'Screwdriver',NULL,'screwdriver.png',2,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (18,'Shield',NULL,'shield.jpg',3,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (19,'Ship',NULL,'destroyer.png',100,0,'2010-08-10 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (20,'Spoon',NULL,'spoon.jpg',2,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (21,'Telephone',NULL,'telephone.png',10,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (22,'Tire',NULL,'tire.jpg',8,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (23,'Towel',NULL,'towel.jpg',2,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (24,'Transmitter',NULL,'transmitter.jpg',9,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (25,'Umbrella',NULL,'umbrella.jpg',6,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (26,'Wrench',NULL,'wrench.png',3,1,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (27,'Robot',NULL,'robot.png',25,0,'2010-08-11 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (28,'Muffin',NULL,'muffin.png',1,1,'2010-08-11 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (29,'Diamond',NULL,'diamond.jpg',50,0,'2000-01-01 00:00:00');
+insert into `item_type` (`id`,`name`,`description`,`icon_filename`,`base_price`,`replenishable`,`created`) values (30,'Book',NULL,'book.png',1,1,'2010-08-10 00:00:00');
+
+/*Table structure for table `item_types_per_combo_type` */
+
+DROP TABLE IF EXISTS `item_types_per_combo_type`;
+
+CREATE TABLE `item_types_per_combo_type` (
+  `combo_type_id` bigint(20) NOT NULL,
+  `item_type_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`combo_type_id`,`item_type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `item_types_per_combo_type` */
+
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (1,27);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (1,28);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (1,29);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (1,30);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (2,2);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (2,9);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (2,11);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (3,10);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (3,17);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (4,3);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (4,22);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (4,24);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (4,26);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (5,3);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (5,6);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,7);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,8);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,16);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,17);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,25);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (6,26);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (7,4);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (7,5);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (7,16);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (8,17);
+insert into `item_types_per_combo_type` (`combo_type_id`,`item_type_id`) values (8,20);
+
+/*Table structure for table `location` */
+
+DROP TABLE IF EXISTS `location`;
+
+CREATE TABLE `location` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `location_type` int(11) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `icon_filename` varchar(50) DEFAULT NULL,
+  `code` varchar(40) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=latin1;
+
+/*Data for the table `location` */
+
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (1,'Rome',0,73.1121838735694,106.270751953125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (2,'Brussels',5,73.0558423937662,106.475372314453,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (3,'Normandy',5,72.9727976361735,106.701965332031,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (4,'Thessalonica',5,72.8731887038633,107.175750732422,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (5,'Paris',5,73.1504399116301,107.020568847656,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (6,'Orleans',5,73.1468569855831,107.679748535156,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (7,'Bratislava',5,73.1101890627716,108.297729492188,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (8,'Geneva',5,73.0149710340272,107.200469970703,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (9,'Nilan',5,72.9554973127264,107.906341552734,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (10,'Vienna',5,72.9760144204706,108.4130859375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (11,'Moscow',5,73.022591571473,108.715209960938,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (12,'Munich',5,73.1488475913752,108.907470703125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (14,'Pittsburgh',5,72.7314816244933,108.056030273438,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (15,'Guatemala',5,72.5190565510343,108.967895507812,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (16,'Brisbane',5,72.8266194333168,109.758911132812,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (17,'Quito',5,72.5865833008186,107.102966308594,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (18,'Havana',5,72.6563137137099,106.388854980469,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (19,'Miami',5,72.7485951908625,105.155639648438,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (20,'Acapulco',5,72.4396784729713,109.989624023438,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (25,'Trondheim',5,73.4894164056444,107.990112304688,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (26,'Sandefjord',5,73.6262403302411,107.42431640625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (27,'Drammen',5,73.6664541134991,106.166381835938,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (28,'Columbus',5,73.4987805176733,104.600830078125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (29,'Fort Worth',5,73.2567931598763,103.815307617188,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (33,'Guyana',5,72.9357621982559,106.056518554688,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (35,'Montevideo',5,72.2823815710573,105.122680664062,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (39,'Fredrikstad',5,73.8217595470377,106.885986328125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (40,'Baltimore',5,73.4064754274297,105.606079101562,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (41,'Santa Cruz',5,73.0546416586511,103.809814453125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (43,'Anaheim',5,73.2994673570081,104.688720703125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (44,'Bogota',5,72.9067234344271,105.66650390625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (46,'Caracas',5,72.0705296991607,109.27001953125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (47,'Lima',5,72.7770812644007,109.039306640625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (48,'Sydney',5,73.0322127704276,109.62158203125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (49,'Springfield',5,73.0450328039299,103.16162109375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (52,'San Jose',5,73.2773532019247,108.446044921875,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (53,'Farsund',5,73.346759201486,107.2265625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (56,'Chicago',5,73.0065444723843,105.5126953125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (57,'Des Moines',5,73.2425449028121,105.35888671875,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (58,'Santiago',5,72.6759532561552,107.413330078125,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (59,'Sao Paulo',5,72.7412628197648,106.907958984375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (63,'Narvik',5,73.3373112539892,106.67724609375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (66,'Buenos Aires',5,72.2321614349197,109.70947265625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (67,'New York',5,73.0834365174476,104.974365234375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (69,'Panajachel',5,73.5096987893116,106.842041015625,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+insert into `location` (`id`,`name`,`location_type`,`latitude`,`longitude`,`icon_filename`,`code`,`created`) values (70,'Panama',5,72.3224587326886,108.96240234375,'castle-64x64.png',NULL,'2000-01-01 00:00:00');
+
+/*Table structure for table `location_info_per_player` */
+
+DROP TABLE IF EXISTS `location_info_per_player`;
+
+CREATE TABLE `location_info_per_player` (
+  `player_id` bigint(20) NOT NULL,
+  `location_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`player_id`,`location_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `location_info_per_player` */
+
+insert into `location_info_per_player` (`player_id`,`location_id`) values (1,2);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (1,3);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (1,5);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (2,4);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (2,8);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (3,7);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (3,11);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (3,12);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (3,13);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (4,1);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (4,3);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (4,5);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (4,6);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (4,8);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (5,22);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (5,31);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (5,32);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (6,21);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (6,22);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (7,7);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (7,10);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (7,11);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (7,14);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (8,27);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (8,28);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (8,29);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (8,40);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (9,22);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (9,30);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (9,31);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (10,13);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (10,25);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (10,26);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (11,18);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (11,33);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (12,7);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (12,10);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (12,11);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (12,14);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (13,22);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (13,30);
+insert into `location_info_per_player` (`player_id`,`location_id`) values (13,31);
+
+/*Table structure for table `message` */
+
+DROP TABLE IF EXISTS `message`;
+
+CREATE TABLE `message` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `sender_id` bigint(20) DEFAULT NULL,
+  `time_sent` datetime DEFAULT NULL,
+  `broadcast` tinyint(1) DEFAULT NULL,
+  `global` tinyint(1) DEFAULT NULL,
+  `content` varchar(1000) DEFAULT NULL,
+  `delivered` tinyint(11) NOT NULL DEFAULT '0',
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `delivered_idx` (`delivered`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `message` */
+
+/*Table structure for table `message_graph` */
+
+DROP TABLE IF EXISTS `message_graph`;
+
+CREATE TABLE `message_graph` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `message_id` bigint(20) NOT NULL,
+  `receiver_id` bigint(20) NOT NULL,
+  `time_received` datetime DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`,`message_id`,`receiver_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `message_graph` */
+
+/*Table structure for table `road` */
+
+DROP TABLE IF EXISTS `road`;
+
+CREATE TABLE `road` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `location1_id` bigint(20) DEFAULT NULL,
+  `location2_id` bigint(20) DEFAULT NULL,
+  `road_type` int(11) DEFAULT NULL,
+  `road_points_string` varchar(1000) DEFAULT NULL,
+  `code` varchar(40) DEFAULT NULL,
+  `danger` double NOT NULL DEFAULT '0',
+  `length` double NOT NULL DEFAULT '0',
+  `travel_duration` int(11) NOT NULL DEFAULT '0',
+  `penalty` tinyint(1) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `code_idx` (`code`)
+) ENGINE=InnoDB AUTO_INCREMENT=143 DEFAULT CHARSET=latin1;
+
+/*Data for the table `road` */
+
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (1,'Road10',1,2,2,'','40',0.541743310704461,0,20380,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (2,'Road11',3,2,2,'73.0049389530787,106.47125244140625;','9',0.372863753046806,0,20723,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (3,'Road10',1,5,1,'73.10420325769985,106.37649536132812;73.10619875486061,106.5069580078125;73.10140917722619,106.62368774414062;73.07904037897475,106.7047119140625;73.0902283688527,106.7431640625;','26',0.0475172454138629,0,37267,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (4,'Road11',5,6,0,'73.08663301263717,107.26913452148438;73.09102723613483,107.55477905273438;73.06504528625949,107.63031005859375;','3',0.130475983344238,0,32326,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (5,'Road12',5,8,2,'','35',0.456261213643055,0,24651,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (6,'Road13',8,6,2,'73.02499736749472,107.38311767578125;73.04102755373505,107.51083374023438;73.06104462497655,107.60421752929688;','18',0.43127615744416,0,5589,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (7,'Road14',8,4,1,'72.91802197953525,107.14004516601562;72.85659981428137,107.21145629882812;','32',0.747112178942073,0,13406,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (8,'Road15',8,9,1,'72.95106890958276,107.68798828125;72.91197008888645,107.70858764648438;','7',0.74159979471901,0,8071,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (9,'Road16',9,7,1,'73.0622449196798,108.01071166992188;73.05424139525888,108.1878662109375;','39',0.746273778562709,0,39054,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (10,'Road17',3,5,2,'73.03662071781326,106.9573974609375;','22',0.634127557537225,0,38179,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (11,'Road10',7,10,0,'',NULL,0.394129212990213,0,34569,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (12,'Road11',10,11,2,'',NULL,0.767927702144867,0,15301,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (13,'Road12',12,11,1,'',NULL,0.263824831979803,0,18986,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (14,'Road13',7,12,0,'',NULL,0.106683629229494,0,35506,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (15,'Road14',10,14,1,'72.8176965451072,108.36639404296875;72.76813341669869,108.27301025390625;',NULL,0.689381748865646,0,7670,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (18,'Road17',25,26,0,'73.6262403302411,107.49298095703125;',NULL,0.407571456289114,0,16077,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (19,'Road18',27,26,2,'73.68189535804056,106.2652587890625;73.65795537140492,106.9573974609375;73.63243332833815,107.06451416015625;',NULL,0.521059163852449,0,26160,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (20,'Road19',11,16,2,'72.86954857468812,109.6051025390625;72.84202111045995,109.5556640625;',NULL,0.307872437212986,0,5136,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (21,'Road20',14,15,0,'72.5099788078743,108.533935546875;',NULL,0.302960567144701,0,21403,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (22,'Road21',14,17,2,'72.57918419407021,107.6275634765625;',NULL,0.897298974738147,0,38435,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (23,'Road22',18,17,2,'',NULL,0.742786962450522,0,26811,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (24,'Road23',18,19,0,'72.75918106139353,105.2435302734375;',NULL,0.306273714831149,0,16335,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (25,'Road24',28,27,0,'73.48629388710614,105.27099609375;',NULL,0.644936401211084,0,17721,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (26,'Road25',29,28,1,'',NULL,0.283371276909559,0,10738,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (35,'Road10',15,20,2,'72.63665259171732,108.973388671875;72.54296690882944,110.126953125;',NULL,0.168145576727978,0,15366,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (36,'Road11',19,35,0,'72.74452202433505,105.3094482421875;72.47858418206782,105.611572265625;',NULL,0.5449320630593,0,39053,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (42,'Road19',35,18,1,'72.50502538697157,105.6610107421875;',NULL,0.43073444652129,0,14061,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (43,'Road20',33,18,1,'72.8274303820893,106.3201904296875;72.82580844740235,106.5289306640625;',NULL,0.71628489239357,0,27647,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (44,'Road21',20,16,1,'72.71516768791155,110.28076171875;',NULL,0.0150532819644765,0,24172,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (45,'Road10',28,40,0,'73.35620194350967,105.128173828125;',NULL,0.8985952683932,0,19893,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (46,'Road11',26,39,0,'73.77424501759963,107.1441650390625;',NULL,0.106776129205369,0,34309,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (48,'Road13',27,39,0,'',NULL,0.504968119491435,0,27134,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (49,'Road10',29,41,0,'',NULL,0.211326105398805,0,28920,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (51,'Road12',28,43,0,'',NULL,0.828737614748653,0,12810,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (54,'Road15',33,44,0,'',NULL,0.787711527662894,0,21575,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (60,'Road21',26,53,0,'',NULL,0.222515639415984,0,21758,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (61,'Road22',53,25,0,'',NULL,0.331200693229788,0,18865,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (62,'Road23',40,27,0,'73.5564118781282,106.358642578125;',NULL,0.861694427795603,0,12176,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (63,'Road24',43,40,0,'',NULL,0.389466204828811,0,24406,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (64,'Road25',49,41,0,'',NULL,0.468744542383078,0,29219,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (70,'Road31',16,47,0,'',NULL,0.0386855478327028,0,28274,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (71,'Road32',47,11,0,'72.90995232978632,108.69873046875;',NULL,0.0332334805095737,0,13066,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (72,'Road33',14,47,0,'',NULL,0.542198034143193,0,8220,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (73,'Road34',56,44,0,'',NULL,0.671707468540708,0,24017,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (74,'Road35',57,56,0,'',NULL,0.731122736083355,0,37074,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (75,'Road36',40,57,0,'',NULL,0.155584113941294,0,33084,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (76,'Road37',57,43,0,'',NULL,0.183001658176618,0,31383,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (95,'Road58',4,58,0,'',NULL,0.668983147651475,0,27534,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (96,'Road59',59,17,0,'',NULL,0.429486808644785,0,28539,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (97,'Road60',59,18,0,'',NULL,0.501992035249267,0,17168,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (98,'Road61',58,14,0,'',NULL,0.0929451595295491,0,21425,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (104,'Road67',40,63,0,'73.39706040384141,106.5673828125;',NULL,0.79426517208235,0,12041,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (105,'Road68',53,63,0,'',NULL,0.267713710364197,0,19570,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (106,'Road69',5,53,0,'73.29630993228643,107.29248046875;',NULL,0.622222570705053,0,29044,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (109,'Road72',3,4,0,'',NULL,0.897606101717703,0,35568,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (110,'Road73',1,57,0,'',NULL,0.660142540143013,0,38532,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (111,'Road74',52,12,0,'',NULL,0.635966966252464,0,32482,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (112,'Road75',52,7,0,'73.18543401519665,108.52294921875;',NULL,0.75654837898646,0,10725,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (114,'Road10',49,29,0,'',NULL,0.425092542959617,0,39717,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (115,'Road11',49,28,0,'73.46598351882643,103.282470703125;',NULL,0.815600523499309,0,28605,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (116,'Road12',19,56,0,'72.88410458993312,105.216064453125;',NULL,0.438252294277659,0,12631,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (117,'Road13',19,44,0,'72.86793049861396,105.1611328125;',NULL,0.713937669429954,0,28737,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (118,'Road14',43,19,0,'72.9260879324414,104.65576171875;',NULL,0.128457379713473,0,12173,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (119,'Road15',48,16,0,'72.90672343442712,109.830322265625;',NULL,0.334336430732621,0,21076,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (120,'Road16',48,12,0,'73.06744524275638,109.09423828125;',NULL,0.861613357117628,0,24921,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (121,'Road17',48,11,0,'',NULL,0.615811385260709,0,6193,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (123,'Road19',9,14,0,'',NULL,0.582387881928242,0,24072,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (125,'Road21',52,6,0,'',NULL,0.284126106720562,0,11268,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (126,'Road22',53,69,0,'',NULL,0.306318287388773,0,38047,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (127,'Road23',26,69,0,'',NULL,0.0887041701334603,0,6096,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (128,'Road24',63,69,0,'',NULL,0.0274772632422089,0,9587,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (130,'Road26',57,67,0,'',NULL,0.894392357887989,0,33366,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (131,'Road27',43,67,0,'',NULL,0.448468350958414,0,11848,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (133,'Road30',70,46,0,'',NULL,0.779987741250048,0,12316,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (134,'Road31',46,66,0,'',NULL,0.727910300450955,0,31864,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (135,'Road32',66,70,0,'',NULL,0.196036027936317,0,14747,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (136,'Road33',70,14,0,'72.4951144678487,108.116455078125;',NULL,0.480790037010329,0,31337,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (137,'Road34',70,15,0,'',NULL,0.782529746789789,0,14316,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (138,'Road35',66,20,0,'',NULL,0.747913451534092,0,26383,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (139,'Road36',70,20,0,'',NULL,0.197878091150662,0,5128,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (140,'Road37',35,17,0,'',NULL,0.134043177681665,0,27022,0,'2000-01-01 00:00:00');
+insert into `road` (`id`,`name`,`location1_id`,`location2_id`,`road_type`,`road_points_string`,`code`,`danger`,`length`,`travel_duration`,`penalty`,`created`) values (142,'Road10',41,43,0,'73.1758971742261,104.43603515625;',NULL,0.164160214569882,0,18520,0,'2000-01-01 00:00:00');
+
+/*Table structure for table `road_info_per_player` */
+
+DROP TABLE IF EXISTS `road_info_per_player`;
+
+CREATE TABLE `road_info_per_player` (
+  `player_id` bigint(20) NOT NULL,
+  `road_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`player_id`,`road_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `road_info_per_player` */
+
+insert into `road_info_per_player` (`player_id`,`road_id`) values (1,2);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (1,10);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (2,7);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (3,13);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (3,14);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (3,16);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (4,3);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (4,4);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (4,5);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (4,10);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (5,32);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (5,33);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (6,34);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (7,11);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (7,12);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (7,15);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (8,25);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (8,26);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (8,45);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (9,30);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (9,31);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (10,17);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (10,18);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (11,43);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (12,11);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (12,12);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (12,15);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (13,30);
+insert into `road_info_per_player` (`player_id`,`road_id`) values (13,31);
+
+/*Table structure for table `road_movement` */
+
+DROP TABLE IF EXISTS `road_movement`;
+
+CREATE TABLE `road_movement` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `road_id` bigint(20) NOT NULL,
+  `forward` bit(1) NOT NULL,
+  `move_start` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `duration` int(11) NOT NULL,
+  `status` int(11) DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=91817 DEFAULT CHARSET=latin1;
+
+/*Data for the table `road_movement` */
+
+/*Table structure for table `trade_offer` */
+
+DROP TABLE IF EXISTS `trade_offer`;
+
+CREATE TABLE `trade_offer` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `player1_id` bigint(20) NOT NULL,
+  `player2_id` bigint(20) NOT NULL,
+  `player1_money` int(11) NOT NULL,
+  `player2_money` int(11) NOT NULL,
+  `player1_items` varchar(500) NOT NULL,
+  `player2_items` varchar(500) NOT NULL,
+  `status` int(11) NOT NULL,
+  `time_created` datetime NOT NULL,
+  `time_replied` datetime DEFAULT NULL,
+  `delivered` tinyint(11) NOT NULL DEFAULT '0',
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `players_ids_idx` (`player1_id`,`player2_id`),
+  KEY `delivered` (`delivered`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `trade_offer` */
+
+/*Table structure for table `transaction_log` */
+
+DROP TABLE IF EXISTS `transaction_log`;
+
+CREATE TABLE `transaction_log` (
+  `method_name` varchar(50) DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
+  `start_time` bigint(20) DEFAULT NULL,
+  `end_time` bigint(20) DEFAULT NULL,
+  `duration` int(11) DEFAULT NULL,
+  KEY `method_name_idx` (`method_name`),
+  KEY `username_idx` (`username`),
+  KEY `duration_idx` (`duration`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+/*Data for the table `transaction_log` */
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) DEFAULT NULL,
+  `password` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `admin` tinyint(1) DEFAULT NULL,
+  `score` int(11) DEFAULT NULL,
+  `latitude` double DEFAULT NULL,
+  `longitude` double DEFAULT NULL,
+  `icon_filename` varchar(20) DEFAULT NULL,
+  `status_id` int(11) DEFAULT NULL,
+  `auth_code` varchar(32) DEFAULT NULL,
+  `current_location_id` bigint(20) DEFAULT NULL,
+  `current_road_id` bigint(20) DEFAULT NULL,
+  `forward` tinyint(1) DEFAULT NULL,
+  `logged_in` tinyint(1) NOT NULL,
+  `is_moving` tinyint(1) NOT NULL,
+  `current_road_movement_id` bigint(20) DEFAULT NULL,
+  `last_request` datetime NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `idx_username` (`username`)
+) ENGINE=InnoDB AUTO_INCREMENT=369 DEFAULT CHARSET=latin1;
+
+
+
+/*Table structure for table `user_graph` */
+
+DROP TABLE IF EXISTS `user_graph`;
+
+CREATE TABLE `user_graph` (
+  `user1_id` bigint(20) NOT NULL DEFAULT '0',
+  `user2_id` bigint(20) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user1_id`,`user2_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `user_graph` */
+
+SET SQL_MODE=@OLD_SQL_MODE;

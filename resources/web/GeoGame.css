@@ -1,0 +1,84 @@
+/* 
+    Document   : GeoGame
+    Created on : Nov 12, 2009, 1:25:59 AM
+    Author     : Prasanna Velagapudi <pkv@cs.cmu.edu>
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    margin: 0 auto 0 auto;
+    padding: 0;
+/*    width: 100%;
+    height: 100%*/
+}
+
+.gwt-StackPanel {
+    font-size: 75%;
+}
+
+.myLabel
+{
+whitespace: pre !important;
+}
+
+.largeText12 {
+	font-size: 120%;
+	text-align: center;
+}
+
+.largeText15 {
+	font-size: 150%;
+	text-align: center;
+}
+
+.largeText20 {
+	font-size: 200%;
+	text-align: center;
+}
+
+.usersReady {
+	font-size: 200%;
+	color: #00FF00;
+}
+
+.usersNotReady {
+	font-size: 200%;
+	color: #FF0000;
+}
+
+.blackBackground {
+	background: #000000
+}
+
+.takenItemBackground {
+	background: #FFFFFF
+}
+
+.searchItemBackground {
+	background: #FFFFFF
+}
+
+.progresspanel {
+  background: blue;
+  opacity: 0.8;	
+}
+.progresspanel2 {
+  background: gray;
+}
+.progresspanel3 {
+  background: yellow;
+}
+.progresspanel4 {
+  background: red;
+  opacity: 0.5;	
+}

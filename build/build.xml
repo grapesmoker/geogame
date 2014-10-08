@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<project name="GeoGame" default="all" basedir=".">
+
+	<!-- set the workspace root directory -->
+	<property name="workspace.dir" value="${basedir}/../../" />
+	<property name="project.dir" value="${basedir}/../" />
+
+	<!-- set properties for automated tests -->
+	<property name="src.dir" value="${project.dir}/src" />
+
+	<!-- project settings override workspace settings -->
+	<property file="${project.dir}/build/build.properties" />
+	<property file="${project.dir}/build/database.properties" />
+
+	<!--
+	*** Set the build classpath ***
+	-->
+	<path id="build.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${project.dir}/war/WEB-INF/classes"/>
+		<pathelement location="${gwt.home}/gwt-dev.jar"/>
+		<pathelement location="${gwt.home}/gwt-user.jar"/>
+		<pathelement location="${gwt.home}/validation-api-1.0.0.GA.jar"/>
+		<pathelement location="${gwt.home}/validation-api-1.0.0.GA-sources.jar"/>
+	</path>
+
+	<!--
+	**************************************************************************
+	* Target: info
+	* Displays current property values.
+	**************************************************************************
+	-->
+	<target name="info">
+		<echo message="Configuration properties" />
+		<echoproperties>
+			<propertyset>
+				<propertyref prefix="configure." />
+			</propertyset>
+		</echoproperties>
+
+		<echo message="Path properties" />
+		<echoproperties>
+			<propertyset>
+				<propertyref regex=".dir" />
+			</propertyset>
+		</echoproperties>
+	</target>
+
+	<!--
+	**************************************************************************
+	* Target: clean
+	* Removes all files created by the build from the system
+	**************************************************************************
+	-->
+	<target name="clean">
+		<delete dir="${project.dir}/war/WEB-INF/classes" />
+		<delete dir="${project.dir}/classes" />
+		<delete dir="${stage.dir}/dist" />
+		<delete dir="${stage.dir}/deploy" />
+	</target>
+
+
+	<!--
+	**************************************************************************
+	* Target: prepare
+	* Prepares the system for the build
+	**************************************************************************
+	-->
+	<target name="prepare">
+		<mkdir dir="${project.dir}/war/WEB-INF/classes" />
+		<mkdir dir="${project.dir}/war/js" />
+		<mkdir dir="${project.dir}/war/css" />
+		<mkdir dir="${stage.dir}/dist" />
+		<mkdir dir="${stage.dir}/deploy" />
+		<mkdir dir="${project.dir}/classes" />
+	</target>
+
+
+	<!--
+	**************************************************************************
+	* Target: compile
+	* This will launch the java compiler.
+	**************************************************************************
+	-->
+
+	<target name="compile" depends="prepare">
+		<echo message="Java" />
+		<javac destdir="${project.dir}/classes" debug="${configure.build.debug}" debuglevel="lines,vars,source"
+			memoryInitialSize="128m" memoryMaximumSize="512m" deprecation="${configure.build.deprecation}"
+			verbose="false" compiler="javac1.5" fork="yes" executable="${jdk.dir}/bin/javac">
+			<src path="${project.dir}/src" />
+			<classpath refid="build.classpath"/>
+		</javac>
+	</target>
+
+
+
+
+  <!-- Define gwt.home, gwt.dev.jar, appengine.sdk.home -->
+  <property file="build.properties"/>
+
+  <path id="project.class.path">
+	<pathelement location="${project.dir}/classes"/>
+	<!--<pathelement location="${gwt.home}/gwt-user.jar"/>-->
+	<!-- Add any additional non-server libs (such as JUnit) -->
+	<!--<pathelement location="../lib/gwt-dev.jar"/>-->
+	<pathelement location="../lib/jaspyt-1.6.jar"/>
+  	<pathelement location="${gwt.home}/validation-api-1.0.0.GA.jar"/>
+  	<pathelement location="${gwt.home}/validation-api-1.0.0.GA-sources.jar"/>
+	<fileset dir="${project.dir}/lib">
+		<include name="**/*.jar"/>
+	</fileset>
+  </path>
+
+  <!-- can add additional arguments like -logLevel INFO or -style PRETTY -->
+  <target name="gwtc" depends="compile" description="GWT compile to JavaScript">
+  	<property name="gwt.compiler.output.style" value="DETAILED"/>
+<!--	<property name="draftCompile" value="true"/>	-->
+	<java failonerror="true" fork="true" classname="com.google.gwt.dev.Compiler">
+	  <!--<arg value="-logLevel"/>
+	  <arg value="DEBUG"/>-->
+	  <classpath>
+		<pathelement location="${src.dir}"/>
+		<path refid="project.class.path"/>
+		<pathelement location="${gwt.home}/${gwt.dev.jar}"/>
+	  </classpath>
+	  <!-- add jvmarg -Xss16M or similar if you see a StackOverflowError -->
+	  <jvmarg value="-Xmx256M"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.GeoGame"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.GeoAdmin"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.TestGeoGameAgents"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.MapOverviewer"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.TestRemoteClient"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.Agent"/>
+	  <arg value="-style"/>
+	  <arg value="DETAILED"/>
+	</java>
+  </target>
+
+  <target name="hosted" depends="compile" description="Run hosted mode">
+	<java failonerror="true" fork="true" classname="com.google.gwt.dev.DevMode">
+	  <classpath>
+	  	<pathelement location="${src.dir}"/>
+		<path refid="project.class.path"/>
+		<pathelement location="${gwt.home}/${gwt.dev.jar}"/>
+	  </classpath>
+	  <jvmarg value="-Xmx256M"/>
+	  <arg value="-war"/>
+	  <arg value="/Users/jerry/Documents/workspace/geogame-svn/trunk/war"/>
+	  <arg value="-startupUrl"/>
+	  <arg value="GeoGame.html"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.GeoAdmin"/>
+	  <arg value="edu.cmu.cs.cimds.geogame.GeoGame"/>
+	  <!-- Additional arguments like -style PRETTY or -logLevel DEBUG -->
+	</java>
+  </target>
+
+  <target name="build" depends="gwtc" description="Build this project" />
+
+
+
+<!--
+**************************************************************************
+* Target: package
+* This will package and copy the files necessary to run the system
+**************************************************************************
+
+-->
+<target name="package" depends="gwtc">
+
+	<!--
+    <copy todir="${project.dir}/classes" overwrite="true" verbose="true">
+	  <fileset dir="${project.dir}/local-resources">
+	    <exclude name="README" />
+	  </fileset>
+	</copy> 
+	-->
+	<copy todir="${project.dir}/classes" verbose="true">
+		<fileset dir="${project.dir}/resources/">
+			<include name="hibernate.cfg.xml"/>
+			<include name="log4j.properties"/>
+		</fileset>
+	</copy>
+	<copy todir="${project.dir}/war/">
+		<fileset dir="${project.dir}/resources/web/">
+			<include name="**/*.html"/>
+		</fileset>
+	</copy>
+	<copy todir="${project.dir}/war/">
+		<fileset dir="${project.dir}/resources/images/">
+			<include name="**/*"/>
+		</fileset>
+	</copy>
+	<copy todir="${project.dir}/war/js/">
+		<fileset dir="${project.dir}/resources/js/">
+			<include name="**/*.js"/>
+		</fileset>	
+	</copy>
+	<copy todir="${project.dir}/war/css/">
+		<fileset dir="${project.dir}/resources/css/">
+			<include name="**/*.css"/>
+		</fileset>	
+	</copy>	
+	<move todir="${project.dir}/war">
+	  <fileset dir="${project.dir}/build/war"/>
+  	</move>
+	<move todir="${project.dir}/war/WEB-INF/classes">
+	  <fileset dir="${project.dir}/classes" />
+	</move>
+	<echo message="Packaging geogame.jar"/>
+	<jar destfile="${stage.dir}/dist/geogame.jar">
+		<fileset dir="${project.dir}/war/WEB-INF/classes"/>
+	</jar>
+	<copy todir="${stage.dir}/deploy/lib" flatten="true">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${stage.dir}/dist">
+			<include name="**/*.jar" />
+		</fileset>
+	</copy>
+</target>
+
+
+<target name="package-webapp" depends="package">
+	<!-- staging web files -->
+	<copy file="${project.dir}/resources/web/web.xml" tofile="${stage.dir}/war/WEB-INF/web.xml" />
+	<echo message="Packaging root.war" />
+	<jar jarfile="${stage.dir}/dist/ROOT.war" duplicate="preserve">
+	<!-- custom web files -->
+		<zipfileset dir="${project.dir}/war" prefix="">
+			<include name="**/*" />
+		</zipfileset>
+	<!-- jar files -->
+		<zipfileset dir="${stage.dir}/deploy/lib" prefix="WEB-INF/lib">
+			<include name="*.jar" />
+		</zipfileset>
+
+	<!-- staged web files -->
+		<zipfileset dir="${stage.dir}/war" prefix="">
+			<include name="**/*" />
+		</zipfileset>
+	</jar>
+	<copy file="${stage.dir}/dist/ROOT.war" todir="${stage.dir}/deploy/tomcat/webapps" />
+
+	<copy todir="${stage.dir}/deploy/tomcat/common/lib" flatten="true">
+		<fileset dir="${lib.dir}">
+			<include name="**/log4j*.jar"/>
+<!-- 			<include name="**/commons-logging*.jar"/>-->
+		</fileset>
+	</copy>
+	<delete dir="${stage.dir}/war/" />
+</target>
+
+
+
+
+<!-- ####################-->
+
+
+	<target name="deploy" depends="deploy-engine, deploy-webapp" />
+
+	<target name="deploy-engine" depends="package-webapp">
+		<echo message="Deploying engine" />
+		<!-- <delete dir="${target.dir}" failonerror="false"/> -->
+		<copy todir="${target.dir}" overwrite="true" includeemptydirs="false">
+			<fileset dir="${stage.dir}/deploy">
+				<include name="**/*" />
+				<exclude name="tomcat/**/*" />
+				<exclude name="propfiles/log4j.xml" />
+				<exclude name="propfiles/log4j-Tomcat.xml" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="deploy-webapp" depends="package-webapp">
+		<echo message="Deploying web application" />
+		<delete file="${tomcat.dir}/conf/Catalina/localhost/ROOT.xml"/>
+		<delete dir="${tomcat.dir}/webapps/ROOT" failonerror="false"/>
+		<delete file="${tomcat.dir}/webapps/ROOT.war" failonerror="false"/>
+		<delete dir="${tomcat.dir}/temp" failonerror="false"/>
+		<delete dir="${tomcat.dir}/work" failonerror="false"/>
+		<mkdir dir="${tomcat.dir}/temp" />
+		<mkdir dir="${tomcat.dir}/work" />
+		<copy todir="${tomcat.dir}" overwrite="true" includeemptydirs="false">
+			<fileset dir="${stage.dir}/deploy/tomcat">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="clean-after-deploy" depends="deploy">
+		<delete dir="${project.dir}/classes"/>
+		<delete dir="${project.dir}/work"/>
+	</target>
+
+	<target name="all" depends="deploy"/>
+
+<!-- ####################-->
+</project>

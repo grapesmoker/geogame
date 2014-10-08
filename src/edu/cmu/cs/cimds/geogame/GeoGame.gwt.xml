@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module>
+  <!--<inherits name="org.jasypt"/>-->
+  <!--<source path="../../../../../org/"/>-->
+  
+  <inherits name="com.google.gwt.user.User"/>
+  <inherits name="com.google.gwt.maps.GoogleMaps"/>
+  <inherits name="org.gwtwidgets.WidgetLibrary"/>
+  <inherits name="com.google.gwt.user.Debug"/>
+  <!--<source path="GeoGame/src/org"/>-->
+<!--<inherits name="org.gwanted.gwt.core.module"/>-->
+  <!--
+    If you want to deploy this application outside of localhost,
+    you must obtain a Google Maps API key at:
+    http://www.google.com/apis/maps/signup.html
+    Replace the src attribute below with a URL that contains your key.
+    -->
+
+<!-- tsaousi.cimds.ri.cmu.edu 's GMaps key -->
+<!--  <script src="http://maps.google.com/maps?gwt=1&amp;file=api&amp;v=2&amp;key=ABQIAAAAFeq55e1zBCGfZ7CEVNnXixQm48WuO4sqaFvDTnTCJc0j-Yqy5hQFMVPzUS7E_sK-l8k2Jr-D9I538g"/>-->
+
+<!-- IMPORTANT INFORMATION:
+
+	So, GMaps API v2 requires a key, as you can see. You can indeed run locally without it. However, if you want to use the Selenium testbed,
+	in all likelihood you will have your clients running somewhere other than you development machine (say, on halle). Therefore, in order to
+	test on *your* machine, you will need a key for it. I have added such a key for my machine (vinokurov.psy.cmu.edu) and you will need it
+	for yours as well.
+	
+	-JV 01/09/2012
+ -->
+ <!-- key for vinokurov.psy.cmu.edu below -->
+<!-- 	<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=false&amp;key=ABQIAAAApCh1tPnwyYVDjN3K18vcFhS70XoEzxWpAMq008LVAn-jtnkPORQEHIyNpos8HyYKpGesqngCFLVwIA"></script> -->
+<!-- halle.psy.cmu.edu 's GMaps key -->
+ <script src="http://maps.google.com/maps?gwt=1&amp;file=api&amp;v=2&amp;key=ABQIAAAAFeq55e1zBCGfZ7CEVNnXixS8x2iFCpLv_Rv_63bmC5mJ_nXQABTRQHupuuu-Vg39x_l6ylYFKqZvgQ"/>
+  <!-- You can usually run under localhost without a key                           -->
+<!--  <script src="http://maps.google.com/maps?gwt=1&amp;file=api&amp;v=2&amp;sensor=false"/>-->
+  <!-- Inherit the default GWT style sheet.  You can change       -->
+  <!-- the theme of your GWT application by uncommenting          -->
+  <!-- any one of the following lines.                            -->
+  <inherits name="com.google.gwt.user.theme.standard.Standard"/>
+  <!-- <inherits name="com.google.gwt.user.theme.chrome.Chrome"/> -->
+  <!-- <inherits name="com.google.gwt.user.theme.dark.Dark"/> -->
+  <entry-point class="edu.cmu.cs.cimds.geogame.client.StepwiseGeoGameEntryPoint"/>
+  <!-- Do not define servlets here, use web.xml -->
+  <set-property name="user.agent" value="gecko1_8,safari"/>
+</module>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+	<session-factory>
+	<!--         Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/geogame</property>
+        <property name="connection.username">geogame</property>
+        <property name="connection.password">geogame</property>
+<!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+<!--        <property name="connection.url">jdbc:mysql://tsaousi.cimds.ri.cmu.edu:3306/geogame</property>-->
+<!--        <property name="connection.username">geogame</property>-->
+<!--        <property name="connection.password">geogame</property>-->
+<!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+<!--        <property name="connection.url">jdbc:mysql://128.237.250.204:3306/geogame</property>-->
+<!--        <property name="connection.username">root</property>-->
+<!--        <property name="connection.password">root</property>-->
+
+<!-- connection info, dialect, and driver is stored in reddwerks.properties-->
+        <property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+
+		<property name="hibernate.max_fetch_depth">1</property>
+
+		<property name="hibernate.default_batch_fetch_size">100</property>
+		<property name="hibernate.jdbc.batch_size">50</property>
+		<property name="hibernate.jdbc.fetch_size">100</property>
+		<property name="hibernate.jdbc.batch_versioned_data">true</property>
+
+		<property name="hibernate.jdbc.use_streams_for_binary">true</property>
+
+		<!-- http://www.hibernate.org/42.html#A7 -->
+
+
+<!--		<property name="hibernate.transaction.flush_before_completion">true</property>-->
+<!--		<property name="hibernate.transaction.auto_close_session">true</property>-->
+		
+		
+<!--		<property name="hibernate.transaction.factory_class">com.reddwerks.persistence.NestedTransactionFactory</property>-->
+		<property name="hibernate.transaction.factory_class">org.hibernate.transaction.JDBCTransactionFactory</property>
+		<property name="hibernate.current_session_context_class">thread</property>
+
+<!--		<property name="hibernate.cache.region_prefix">hibernate.test</property>-->
+
+		<!--  property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property-->
+		<property name="hibernate.cache.provider_class"> org.hibernate.cache.EhCacheProvider</property> 
+		<property name="hibernate.cache.use_query_cache">false</property>
+		<property name="hibernate.cache.use_second_level_cache">false</property>
+		<property name="hibernate.generate_statistics">false</property>
+
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+<!--		<property name="hibernate.connection.isolation">8</property>-->
+<!--		<property name="hibernate.connection.release_mode">on_close</property>-->
+<!--		<property name="hibernate.connection.autocommit">false</property>-->
+
+		<property name="hibernate.c3p0.min_size">8</property>
+		<property name="hibernate.c3p0.max_size">32</property>
+		<property name="hibernate.c3p0.timeout">300</property>
+		<property name="hibernate.c3p0.max_statements">0</property>
+		<property name="hibernate.c3p0.idle_test_period">3000</property>
+		<property name="hibernate.c3p0.numHelperThreads">10</property>
+		<property name="hibernate.c3p0.acquireRetryAttempts">30</property>
+
+		<!-- setting explicitly here so we can turn it on and check it out in the future-->
+		<property name="hibernate.generate_statistics">false</property>
+
+		<!-- playing with to speed up initialization when doing dev
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hibernate.query.startup_check">false</property>
+		-->
+
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.AcceptanceForm"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.AcceptedForm"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Action"/>
+<!--		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Combo"/>-->
+<!--		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.ComboType"/>-->
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.DeliveredMessage"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.GeoGameCommand"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Item"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.ItemType"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Location"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Message"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Road"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.RoadMovement"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.ServerSettingsStruct"/>
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Synonym"/>
+<!--		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.TradeOffer"/>-->
+		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.User"/>
+
+<!--		<mapping class="edu.cmu.cs.cimds.geogame.client.model.db.Counter"/>-->
+    </session-factory>
+
+</hibernate-configuration>

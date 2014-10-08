@@ -1,0 +1,29 @@
+#**************************************************************************
+# Build preferences
+#**************************************************************************
+
+configure.build.debug=on
+configure.build.deprecation=off
+
+#**************************************************************************
+# Workspace preferences
+#**************************************************************************
+
+jdk.dir=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home
+tomcat.dir=/usr/local/apache-tomcat-6.0.29
+dev.dir=/Users/jerry/Documents/workspace
+target.dir=${dev.dir}/workspace
+stage.dir=${workspace.dir}/stage
+
+#**************************************************************************
+# Directory and file mappings
+#**************************************************************************
+
+build-properties.dir=${workspace.dir}/build-properties
+lib.dir=${project.dir}/lib
+core.dir=${workspace.dir}
+
+#**********
+# GWT Home
+#**********
+gwt.home=/Applications/eclipse/plugins/com.google.gwt.eclipse.sdkbundle.2.0.4_2.0.4.v201006301309/gwt-2.0.4

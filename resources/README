@@ -1,0 +1,3 @@
+Put private versions of hibernate.cfg.xml and log4j.properties here.
+These are not under version control.
+They will take precedence during a build.
